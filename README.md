@@ -1,4 +1,6 @@
-# todo
+# Todo App 
+
+This is a project that creates a todo list app, it's possible to add new tasks, complete tasks, and delete them. 
 
 ## Project setup
 ```
