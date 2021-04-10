@@ -30,6 +30,15 @@ export default {
       return Math.round((done / total) * 100) || 0;
     },
   },
+  watch: {
+    tasks: {
+      //Ele monitora de forma mais profunda os elementos do array
+      deep: true,
+      handler() {
+        localStorage.setItem("tasks", JSON.stringify(this.tasks));
+      },
+    },
+  },
   methods: {
     addTask(task) {
       //validação para garantir que não existirão itens iguais na lista
@@ -48,6 +57,15 @@ export default {
     toggleTaskState(i) {
       this.tasks[i].pending = !this.tasks[i].pending;
     },
+  },
+  created() {
+    const json = localStorage.getItem("tasks");
+    const array = JSON.parse(json);
+    if (Array.isArray(array)) {
+      this.tasks = array;
+    } else {
+      this.tasks = [];
+    }
   },
 };
 </script>
