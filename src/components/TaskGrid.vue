@@ -6,6 +6,7 @@
         :key="task.name"
         :task="task"
         @taskDeleted="$emit('taskDeleted', i)"
+        @taskStateChange="$emit('taskStateChange', i)"
       ></Task>
     </template>
     <p v-else class="no-task">Sua vida está em dia 🔥</p>
